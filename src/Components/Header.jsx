@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 
+
 function Header() {
   const [buttonData, setButtondata] = useState("Login")
 
@@ -17,7 +18,7 @@ function Header() {
           <li>Cart</li>
           <button className="btnlogin"
             onClick={
-              () => buttonData == "Login" ? setButtondata("Logout") : setButtondata("Login")
+              () => buttonData == "Login" ? setButtondata("Logout") : setButtondata("Login") 
             }>{buttonData}</button>
         </ul>
       </div>

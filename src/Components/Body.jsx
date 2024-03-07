@@ -3,7 +3,7 @@ import Card from "./Card"
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Shimmer from "./Shimmer";
-
+import { Link } from "react-router-dom";
 
 function Body() {
   //console.log(resList)
@@ -51,14 +51,15 @@ function Body() {
         <button className="filter_btn"
           onClick={() => {
             const filteredData = resturantData.filter((ele) => ele.info.avgRating > 4.3);
-            //console.log(filteredData)
-            setResturantData(filteredData)
+            console.log(filteredData)
+            setFilterResturantData(filteredData)
           }}
         >Top Rated Resturants</button>
-      </div>
+      </div>.
       <div className="resto_cont">
         {filterResturantData.map((ele) => (
-          <Card key={ele.info.id} resData={ele} />
+          <Link key={ele.info.id} to={`/resturants/${ele.info.id}`}><Card resData={ele} /></Link>
+
         ))}
 
       </div>
