@@ -3,6 +3,9 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
+
+
+
 export default function ResturantMeny() {
   const [resInfo, setResInfo] = useState(null);
   const { resId } = useParams();
@@ -18,12 +21,11 @@ export default function ResturantMeny() {
         console.log(res, 1);
         setResInfo(res.data);
         setItemsInformation(
-          res.data?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]
+          res.data?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]
             ?.card?.card.itemCards
         );
-        let test =
-          res.data?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]
-            ?.card?.card.itemCards;
+        let test =res.data?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]
+        ?.card?.card.itemCards
         console.log(test, 5); //has value
         console.log(resInfo, 2); //null
         console.log(itemsInformation, 6); //null
@@ -43,7 +45,7 @@ export default function ResturantMeny() {
 
   if (resInfo == null) return <Shimmer />;
   const { name, cuisines, costForTwoMessage } =
-    resInfo?.data?.cards[0]?.card?.card?.info;
+    resInfo?.data?.cards[2]?.card?.card?.info;
 
   //console.log(itemsInfo)
   return (

@@ -1,8 +1,13 @@
 import React from 'react'
+import User from './User'
+import UserClass from './UserClass'
 
 function About() {
   return (
-    <div>About</div>
+    <div>
+      <User name={"himansu"} location={"bbsr"}/>
+      <UserClass  name={"himansu-class"} location={"bbsr-class"} />
+    </div>
   )
 }
 

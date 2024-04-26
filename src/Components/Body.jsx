@@ -15,8 +15,8 @@ function Body() {
 
   async function fetchData() {
     try {
-      let res = await axios.get("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING")
-      //console.log(res)
+      let res = await axios.get("https://www.swiggy.com/dapi/restaurants/list/v5?lat=20.2960587&lng=85.8245398&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
+      console.log(res)
       //console.log(res.data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants)
       setResturantData(res.data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants)
       setFilterResturantData(res.data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants)
@@ -24,16 +24,18 @@ function Body() {
       console.log(error)
     }
   }
+
   useEffect(
     () => {
       fetchData()
     }, []
   )
 
-  // if (resturantData.length===0){
-  //   return <Shimmer/>
-  // }
-  return resturantData.length === 0 ? <Shimmer /> : (
+  if (resturantData.length===0){
+    return <Shimmer/>
+  }
+  return  (
+   
     <div className="body">
       <div className="filter_btn1">
         <div className="search">
