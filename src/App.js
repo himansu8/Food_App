@@ -10,7 +10,7 @@ import Contact from './Components/Contact';
 import ResturantMenu from './Components/ResturantMenu';
 import React,{lazy,Suspense} from 'react';
 function App() {
-  const About = lazy(()=> import('./Components/About'))
+  const About = lazy(()=> import('./Components/About')) //dynamic import 
   return (
     <div className='app'>
       <Routes>

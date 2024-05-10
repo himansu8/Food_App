@@ -38,14 +38,16 @@ function Body() {
   if (resturantData.length === 0) {
     return <Shimmer />
   }
+  console.log("all resto body", filterResturantData)
   return (
 
     <div className="body">
-      <div className="filter_btn1">
-        <div className="search">
-          <input type="text" className="search_box" value={searchText}
+     
+      <div className="filter_btn1 flex">
+        <div className="search m-4 p-4">
+          <input type="text" className="border border-solid border-black" value={searchText}
             onChange={(e) => { setSearchText(e.target.value) }} />
-          <button className="search_btn"
+          <button className="px-4 py-2 bg-green-200 m-4 rounded-xl"
             onClick={() => {
               console.log(searchText)
               const filteredResto = resturantData.filter((ele) => ele.info.name.toLowerCase().includes(searchText.toLowerCase()))
@@ -54,15 +56,17 @@ function Body() {
               setFilterResturantData(filteredResto)
             }}>Search</button>
         </div>
-        <button className="filter_btn"
+        <div className="search m-4 p-4 flex items-center">
+        <button className="px-4 py-2 bg-gray-100 rounded-xl"
           onClick={() => {
             const filteredData = resturantData.filter((ele) => ele.info.avgRating > 4.3);
             console.log(filteredData)
             setFilterResturantData(filteredData)
           }}
         >Top Rated Resturants</button>
+        </div>
       </div>.
-      <div className="resto_cont">
+      <div className="flex flex-wrap">
         {filterResturantData.map((ele) => (
           <Link key={ele.info.id} to={`/resturants/${ele.info.id}`}><Card resData={ele} /></Link>
 
