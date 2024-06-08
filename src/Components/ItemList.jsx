@@ -2,7 +2,7 @@ import React from 'react'
 import { CDN_URL } from '../utils/constants'
 
 function ItemList({ items }) {
-    console.log(items)
+   // console.log(items)
     return (
         <div>
             {items.map((item) => (
@@ -25,7 +25,7 @@ function ItemList({ items }) {
                 </div>
             ))}
         </div>
-    )
+    ) 
 }
 
 export default ItemList
