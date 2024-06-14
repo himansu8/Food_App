@@ -16,7 +16,7 @@ function Body() {
   async function fetchData() {
     try {
       let res = await axios.get("https://www.swiggy.com/dapi/restaurants/list/v5?lat=20.2960587&lng=85.8245398&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
-      console.log(res)
+      //console.log(res)
       //console.log(res.data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants)
       setResturantData(res.data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants)
       setFilterResturantData(res.data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants)
@@ -38,7 +38,7 @@ function Body() {
   if (resturantData.length === 0) {
     return <Shimmer />
   }
-  console.log("all resto body", filterResturantData)
+  //console.log("all resto body", filterResturantData)
   return (
 
     <div className="body">

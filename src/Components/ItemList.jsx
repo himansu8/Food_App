@@ -1,8 +1,14 @@
 import React from 'react'
 import { CDN_URL } from '../utils/constants'
+import { useDispatch } from 'react-redux'
+import { addItems } from '../redux/cartSlice'
 
 function ItemList({ items }) {
-   // console.log(items)
+    // console.log(items)
+    const dispatch = useDispatch()
+    function handleClick(item) {
+        dispatch(addItems(item))
+    }
     return (
         <div>
             {items.map((item) => (
@@ -18,14 +24,15 @@ function ItemList({ items }) {
                     </div>
                     <div className='w-3/12 p-4'>
                         <div className='absolute '>
-                        <button className='p-2 bg-black text-white shadow-lg mx-14 rounded-lg'>Add+</button>
+                            <button className='p-2 bg-black text-white shadow-lg mx-14 rounded-lg'
+                                onClick={()=>handleClick(item)}>Add+</button>
                         </div>
-                        <img src={CDN_URL + item.card.info.imageId} />
+                        <img src={CDN_URL + item.card.info.imageId} alt='itempic' />
                     </div>
                 </div>
             ))}
         </div>
-    ) 
+    )
 }
 
 export default ItemList
