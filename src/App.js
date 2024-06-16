@@ -12,6 +12,7 @@ import React, { lazy, Suspense, useContext, useEffect, useState } from 'react';
 import userContext from './utils/userContext';
 import { store } from './redux/store';
 import { Provider } from 'react-redux';
+import Cart from './Components/Cart';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
             <Route path="/" element={<> <Header /> <Body /> </>} errorElement={<Error />} />
             <Route path="/about" element={<> <Header /> <Suspense fallback={<div>Loading...</div>}><About /></Suspense>  </>} />
             <Route path="/contact" element={<> <Header /> <Contact /> </>} />
+            <Route path="/cart" element={<> <Header /> <Cart/> </>} />
             <Route path='/resturants/:resId' element={<><Header /> <ResturantMenu /> </>} />
           </Routes>
         </userContext.Provider>
